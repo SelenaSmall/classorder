@@ -24,7 +24,7 @@ class Order
 	def drinks
 		drinks = []
 		@items.each do |item|
-			if item.menu_item.item_course == :spirits
+			if [:spirits, :beer].include? item.menu_item.item_course
 				drinks.push(item)
 			end
 		end
