@@ -1,10 +1,10 @@
 class Order
 
-	attr_reader :items, :table_number
+	attr_reader :items, :table
 
-	def initialize(table_number)
+	def initialize(table)
 		@items = []
-		@table_number = table_number
+		@table = table
 	end
 
 	def add_item(order_item)
@@ -24,7 +24,7 @@ class Order
 	def drinks
 		drinks = []
 		@items.each do |item|
-			if [:spirits, :beer].include? item.menu_item.item_course
+			if item.menu_item.item_course == :spirits
 				drinks.push(item)
 			end
 		end
